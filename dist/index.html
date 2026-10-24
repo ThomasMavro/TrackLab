@@ -1354,7 +1354,9 @@ function renderList() {
   }).join('');
   const full = lanesUsed().length >= 9;
   $('#addAth').disabled = full; $('#addReal').disabled = full;
-  $('#resetBtn').disabled = state.athletes.length <= 1 && !state.results;
+  const nothing = state.athletes.length <= 1 && !state.results;
+  $('#resetBtn').disabled = nothing;
+  $('#resetBtn').title = nothing ? 'Nothing to reset: only your profile is on the track' : 'Remove everyone except your profile and clear the report';
 }
 $('#athList').addEventListener('click', e => {
   const del = e.target.closest('[data-del]');
@@ -1819,6 +1821,7 @@ function runRace(opts) {
   state.stale = false; $('#runBtn').classList.remove('stale'); $('#runBtn').textContent = 'Run race';
   state.duration = Math.max(...Object.values(res).map(r => r.time)) + 3;
   rebuildRunners();
+  renderList(); // the Reset race button depends on whether there is a result to clear
   if (opts.focusIdx != null) {
     state.focus = (state.athletes[opts.focusIdx] || state.athletes[0]).id;
     state.ref = opts.refIdx != null && opts.refIdx >= 0 && state.athletes[opts.refIdx] ? state.athletes[opts.refIdx].id : null;

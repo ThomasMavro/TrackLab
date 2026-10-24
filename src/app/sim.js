@@ -15,6 +15,7 @@ function runRace(opts) {
   state.stale = false; $('#runBtn').classList.remove('stale'); $('#runBtn').textContent = 'Run race';
   state.duration = Math.max(...Object.values(res).map(r => r.time)) + 3;
   rebuildRunners();
+  renderList(); // the Reset race button depends on whether there is a result to clear
   if (opts.focusIdx != null) {
     state.focus = (state.athletes[opts.focusIdx] || state.athletes[0]).id;
     state.ref = opts.refIdx != null && opts.refIdx >= 0 && state.athletes[opts.refIdx] ? state.athletes[opts.refIdx].id : null;

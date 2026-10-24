@@ -38,7 +38,9 @@ function renderList() {
   }).join('');
   const full = lanesUsed().length >= 9;
   $('#addAth').disabled = full; $('#addReal').disabled = full;
-  $('#resetBtn').disabled = state.athletes.length <= 1 && !state.results;
+  const nothing = state.athletes.length <= 1 && !state.results;
+  $('#resetBtn').disabled = nothing;
+  $('#resetBtn').title = nothing ? 'Nothing to reset: only your profile is on the track' : 'Remove everyone except your profile and clear the report';
 }
 $('#athList').addEventListener('click', e => {
   const del = e.target.closest('[data-del]');
