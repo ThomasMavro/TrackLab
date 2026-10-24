@@ -2,7 +2,7 @@
 
 A 3D 400 m race simulator for athletes and coaches. You build an athlete profile, race it against real Olympic and World Championship performances or your own recorded runs, and get a report on where the race was won or lost and which improvements would gain the most time.
 
-**[Open the live tool](https://claude.ai/artifact/4N9sZwkXCV8Yg72GXK4AQP)** · [User guide](docs/GUIDE.md) · [How accurate is it?](docs/VALIDATION.md)
+**[Open the live tool](https://thomasmavro.github.io/TrackLab/)** · [User guide](docs/GUIDE.md) · [How accurate is it?](docs/VALIDATION.md)
 
 ![Race view](docs/screenshot-race.png)
 
@@ -34,13 +34,13 @@ Fatigue settings are calibrated so the suggested plans match the average split s
 
 ## Run it locally
 
-No install is needed to use it: open `dist/index.html` in a browser. three.js loads from a CDN, and history is kept in the browser.
+Nothing to install: use the [live version](https://thomasmavro.github.io/TrackLab/) or open `docs/index.html` in a browser. three.js loads from a CDN, and your history and recorded runs are kept in your browser.
 
 To rebuild and test, use Node 18 or later:
 
 ```bash
 npm test            # model, data and file-reader tests
-npm run build       # writes dist/index.html
+npm run build       # writes docs/index.html (the page GitHub Pages serves)
 npm run validate    # semi-final → final validation, writes validation/results.json
 npm run fit         # refits every real performance into data/fits.js
 ```
@@ -56,7 +56,7 @@ data/benchmarks.js        real championship splits, lanes, reaction times, condi
 data/fits.js              fitted profiles for every real performance
 scripts/                  build, fitting and validation
 test/                     node:test suites
-docs/                     user guide, validation report, screenshots
+docs/                     the built page (index.html), user guide, validation report, screenshots
 ```
 
 ## Data sources
