@@ -1,0 +1,13 @@
+{
+  "name": "400m-race-lab",
+  "version": "1.0.0",
+  "description": "3D 400 m race simulator: athlete profiles, real championship splits, your own recorded runs, ghosts and a coaching report.",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test test/*.test.js",
+    "fit": "node scripts/fit-benchmarks.js",
+    "validate": "node scripts/validate.js"
+  },
+  "engines": { "node": ">=18" }
+}
